@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="12141" systemVersion="16E195" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="BookMO" representedClassName="BookMO" syncable="YES" codeGenerationType="class">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="userBestBook" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="UserMO" inverseName="bestBook" inverseEntity="UserMO" syncable="YES"/>
+        <relationship name="userBooks" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="UserMO" inverseName="books" inverseEntity="UserMO" syncable="YES"/>
+    </entity>
+    <entity name="RatingMO" representedClassName="RatingMO" syncable="YES" codeGenerationType="class">
+        <attribute name="rating" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="UserMO" inverseName="ratings" inverseEntity="UserMO" syncable="YES"/>
+    </entity>
+    <entity name="UserMO" representedClassName=".UserMO" syncable="YES" codeGenerationType="class">
+        <attribute name="age" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="data" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="weight" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="bestBook" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="BookMO" inverseName="userBestBook" inverseEntity="BookMO" syncable="YES"/>
+        <relationship name="books" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="BookMO" inverseName="userBooks" inverseEntity="BookMO" syncable="YES"/>
+        <relationship name="ratings" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RatingMO" inverseName="user" inverseEntity="RatingMO" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="UserMO" positionX="-63" positionY="-18" width="128" height="165"/>
+        <element name="BookMO" positionX="-54" positionY="27" width="128" height="90"/>
+        <element name="RatingMO" positionX="-36" positionY="63" width="128" height="75"/>
+    </elements>
+</model>
